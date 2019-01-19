@@ -13,7 +13,7 @@ services:
       - ./:/home/node/app
     ports:
       - "9000:9000"
-    entrypoint: "./start.sh"
+    entrypoint: "./container_bin/start.sh"
 
   redis:
     image: redis
