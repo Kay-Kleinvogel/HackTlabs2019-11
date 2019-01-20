@@ -31,6 +31,22 @@ const userAction2 = async () => {
     console.log(myJson);
 }
 
+
+const userActionGetSteps = async () => {
+    const response = await getStepsFromGoogle();
+    const myJson = await response.json(); //extract JSON from the http response
+    // do something with myJson
+    //console.log(myJson);
+    console.log(myJson.bucket[0].dataset);
+
+    for (let index = 0; index < myJson.bucket.length; index++) {
+        const element = myJson.bucket[index].dataset;
+        
+    }
+}
+
+
+
 function getStepHistory(p_Seed) {
 
     return fetch("https://demo.stax.tlabs.cloud/projects/demo/contexts/IOTA_storage/storage?fields=ref_id%2Cbody%2Cstatus", {
@@ -59,27 +75,13 @@ function postNewSteps(p_Seed, numSteps) {
         method: "POST"
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //myFetch();
 
-userAction();
+//TODO
+//userAction();
 //userAction2();
+userActionGetSteps();
+
 
 /*
 
@@ -115,3 +117,22 @@ fetch(
 )
 
 */
+
+
+
+//------------------------------
+
+//etherDeplContrUrl=
+
+function getStepsFromGoogle() {
+
+return fetch("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate", {
+    body: "{\r\n  \"aggregateBy\": [{\r\n    \"dataTypeName\": \"com.google.step_count.delta\",\r\n    \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:estimated_steps\"\r\n  }],\r\n  \"bucketByTime\": { \"durationMillis\": 86400000 },\r\n  \"startTimeMillis\": 1547956800000,\r\n  \"endTimeMillis\": 1547969193530\r\n}",
+    headers: {
+      Authorization: "Bearer ya29.GluXBqoNTN8ziu84Hb8bHlsg7ZzlrLQTlc2o1f_F5x9iWbVd1QblkNqF_D7tnEzAUjmL7XpuTJw2oAULm8XWT_G0fA_ptydeZ6zky9BGsefrnGBhSDRlMs3XkF7M",
+      "Content-Type": "application/json;encoding=utf-8"
+    },
+    method: "POST"
+  })
+
+}

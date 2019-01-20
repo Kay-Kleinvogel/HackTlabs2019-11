@@ -1,5 +1,5 @@
 pragma solidity ^0.5.0;
-pragma experimental ABIEncoderV2;
+//pragma experimental ABIEncoderV2;
 
 contract InsuranceContractStepChallenge {
     
@@ -42,29 +42,7 @@ contract InsuranceContractStepChallenge {
             }*/
             
         }
-        
-   /* function makeClaim() public {
-        
-        require(validClaim[msg.sender], "Claim not valid");
-        
-        
-        //!TODO Pay out moneys
-        
-        
-        
-        /*if(!approvedBy[msg.sender]){
-            approvalsNum++;
-            approvedBy[msg.sender]=true;
-        }
-        
-        if (approvalsNum == minApprovers){
-            beneficiary.send(address(this).balance);
-            selfdestruct(owner);
-        }*/
-    //}
-    
-    
-    
+            
     
     function processMonth() public {
         require(msg.sender==alarm, "It's not the end of the month yet");
