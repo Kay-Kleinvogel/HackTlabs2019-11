@@ -22,6 +22,8 @@ contract InsuranceContractStepChallenge {
     address payable owner;
     
     
+    
+    
     constructor(
         
         address payable[] memory _insurees,
@@ -77,6 +79,12 @@ contract InsuranceContractStepChallenge {
         
         require(msg.sender==owner, "Not the owner");
         selfdestruct(owner);
+    }
+    
+    function addSteps(memory _insuree) public{
+        require(msg.sender==owner, "Not the owner")
+        succeededStepChallenge[_insuree]=true;
+        
     }
         
     }
