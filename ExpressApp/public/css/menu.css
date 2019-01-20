@@ -58,3 +58,7 @@
     color: var(--font_medium);
     margin-bottom: 0;
 }
+
+#card_2{
+    border-radius: 0 0 10px 10px;
+}

@@ -7,7 +7,34 @@
 
 }
 
+.circle{
+position: relative;
+border-radius: 50%;
+overflow: hidden;
+height: 300px;
+width: 300px;
+text-align: center;
+border: 20px solid var(--font_medium);
+color: white;
+z-index: 2;
+margin: 25% auto;
+}
+.fill {
+    position:absolute;
+    bottom:0; left:0;
+    width:100%;
+    background: orange;
+    height: 20%;
+    transition:height 600ms;
+    z-index: 1;
+}
 
+.text {
+z-index: 3;
+}
+.circle:hover .fill{
+    height: 40%;
+}
 
 body{
     background-color: var(--bg);
