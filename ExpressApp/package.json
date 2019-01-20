@@ -1,0 +1,20 @@
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "This is our app for the TlabsHack in 2019",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blockchain",
+    "identity",
+    "TlabsHack"
+  ],
+  "author": "Kay Kleinvogel",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
