@@ -1,143 +1,188 @@
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  
-      <!-- own css -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/menu.css">
-      <title>iNsurance Menu</title>
-    </head>
-    <body>
-      <div class="container">
-  
-        <div id="title">
-            <h1 id="menu_title">Your Hub</h>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <!-- own css -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <title>Helia | Menu</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div id="title">
+      <h1 id="menu_title">Your Hub</h>
+    </div>
+
+    <div class="card" id="card_1">
+
+      <div class="card-body" data-toggle="modal" data-target="#exampleModal2" id="#exampleModal2">
+        <div id="history_description">
+          <!-- !TODO: is the steps in the 2nd line to much text? -->
+          <h1 id="menu_goal">5.000</h1>
+          <p class="secondary_text">of <span id="step_goal">5.000</span> steps</p>
         </div>
-  
-          <div class="card" id="card_1">
-              <div class="card-body">
-                <div id="history_description">
-                  <!-- !TODO: is the steps in the 2nd line to much text? -->
-                  <h1>5.000</h1><p class="secondary_text">of <span id="step_goal">5.000</span> steps</p>
+      </div>
+    </div> <!-- end of card_1 -->
+
+    <div class="card" id="card_2">
+      <div class="card-body">
+        <h5 class="card-title">Current Contracts</h5>
+        <ul class="list-group" id="contracts">
+          <% contracts.forEach(function(contract){ %>
+          <li class="list-group-item" data-toggle="modal" data-target="#exampleModal_<%= contract.GUID %>">
+            <div class="contract_details">
+              <p class="contract_name primary_text">
+                <%= contract.contract_name %>
+              </p>
+              <p class="contract_frequency secondary_text">every
+                <%= contract.frequency %> days</p>
+            </div>
+          </li>
+
+          <div class="modal fade" id="exampleModal_<%= contract.GUID %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Details for contract:
+                    <%= contract.contract_name %>
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>GUID:
+                    <%= contract.GUID %>
+                  </p>
+                  <p>owner:
+                    <%= contract.owner %>
+                  </p>
+                  <p>recipient:
+                    <%= contract.recipient %>
+                  </p>
+                  <p>contract_name:
+                    <%= contract.contract_name %>
+                  </p>
+                  <p>frequency:
+                    <%= contract.frequency %>
+                  </p>
+                  <p>start_date:
+                    <%= contract.start_date %>
+                  </p>
+                  <p>end_date:
+                    <%= contract.end_date %>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
-            </div> <!-- end of card_1 -->
-  
-            <div class="card" id="card_2">
-              <div class="card-body">
-                <h5 class="card-title">Current Contracts</h5>
-                <ul class="list-group" id="contracts">
-                <% contracts.forEach(function(contract){ %>
-                    <li class="list-group-item" data-toggle="modal" data-target="#exampleModal_<%= contract.GUID %>">
-                      <div class="contract_details">
-                        <p class="contract_name primary_text"> <%= contract.contract_name %></p>
-                        <p class="contract_frequency secondary_text">every <%= contract.frequency %> days</p>
-                      </div>
-                    </li>
+            </div>
+          </div>
+          <%})%>
+        </ul>
+      </div> <!-- end of card body -->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="add_contract">
+        Add a contract
+      </button>
 
-                    <div class="modal fade" id="exampleModal_<%= contract.GUID %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Details for contract: <%= contract.contract_name %></h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <p>GUID: <%= contract.GUID %></p>
-                              <p>owner: <%= contract.owner %></p>
-                              <p>recipient: <%= contract.recipient %></p>
-                              <p>contract_name: <%= contract.contract_name %></p>
-                              <p>frequency: <%= contract.frequency %></p>
-                              <p>start_date: <%= contract.start_date %></p>
-                              <p>end_date: <%= contract.end_date %></p>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                <%})%>
-                </ul>
-              </div> <!-- end of card body -->
-              <!-- Button trigger modal -->
-<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="add_contract">
-    Add a contract
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Adding a new Contract</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!-- modal content -->
-          <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Recipient</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="who should get your data">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">one every x days</label>
-                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="frequency">
-              </div>
-              <div class="form-group">
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Adding a new Contract</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- modal content -->
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Recipient</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="who should get your data">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">one every x days</label>
+                  <input type="number" class="form-control" id="exampleInputPassword1" placeholder="frequency">
+                </div>
+                <div class="form-group">
                   <label for="exampleInputDateStart">Start day</label>
                   <input type="date" class="form-control" id="exampleInputDateStart" placeholder="When should the contract start?">
                 </div>
-              <div class="form-group">
+                <div class="form-group">
                   <label for="exampleInputDateEnd">End day</label>
                   <input type="date" class="form-control" id="exampleInputDateEnd" placeholder="When should the contract end?">
                 </div>
-              <button type="submit" class="btn">Submit</button>
-            </form>
+                <button type="submit" class="btn">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end of card 2 -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Share your data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img id="qr-img" src="http://192.168.16.103:9000/claims/stepsWalked" alt="">
+            <p id="QR-API">{ <br>
+              "claimQR": "/claims/stepsWalked", <br>
+              "date": "2019-01-20T11:55:06.243Z", <br>
+              "issuer": "did:jolo:b2d5d8d6cc140033419b54a237a5db51710439f9f462d1fc98f698eca7ce9777", <br>
+              "steps": 2500, <br>
+              "subject": "did:jolo:df3a9a7bef7d90fdb3b08630799e1b9347b5a370a43b98d6a94b00a60ed5c6f5" <br>
+              }</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-            </div> <!-- end of card 2 -->
-        
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Add a new contract</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                  ....
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div> 
 
-      </div> <!-- end of container -->
-  
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      <script src="/js/jQuery.js"></script>
-  </body>
-  </html>
+    <!-- Modal -->
+
+
+  </div> <!-- end of container -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="/js/jQuery.js"></script>
+  <script src="/js/menu.js"></script>
+</body>
+
+</html>
