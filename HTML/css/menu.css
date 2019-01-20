@@ -1,0 +1,60 @@
+:root{
+    --font_dark: rgba(0,0,0,0.87);
+    --font_medium: rgba(0,0,0,0.54);
+    --font_light: rgba(0,0,0,0.34);
+    --font_white: white;
+    --bg: #efefef;
+}
+
+.container{
+    margin-top: 25px;
+}
+
+.card{
+    margin-bottom: 25px;
+}
+
+#history_description{
+    text-align: center;
+}
+
+#add_contract{
+    background-color: var(--font_medium);
+    color: white;
+    font-size: bold;
+    text-transform: capitalize;
+    border-radius: 0 0 10px 10px;
+}
+
+#title h1{
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    
+}
+
+.button_bar{
+    color: var(--font_medium);
+    width: 100%;
+    text-align: right;
+    background-color: pink;
+}
+
+.contract_name{
+    margin-bottom: 0;
+}
+
+.contract_frequency{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.primary_text{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.secondary_text{
+    color: var(--font_medium);
+    margin-bottom: 0;
+}

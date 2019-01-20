@@ -11,20 +11,21 @@
     <!-- own css -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
     <title>iNsurance Menu</title>
   </head>
   <body>
     <div class="container">
+
+      <div id="title">
+          <h1 id="menu_title">Your Hub</h>
+      </div>
+
         <div class="card" id="card_1">
-            <img src="https://via.placeholder.com/150/" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Step History</h5>
-              <div>
-                Daily goal: <span id="daily_goal">10.000</span>
-                <span class="button_bar">
-                  <a href="#"><i class="fas fa-heart"></i></a>
-                  <a href="#"><i class="fas fa-share"></i></a>
-                </span>
+              <div id="history_description">
+                <!-- !TODO: is the steps in the 2nd line to much text? -->
+                <h1>2.500</h1><p class="secondary_text">of <span id="step_goal">10.000</span> steps</p>
               </div>
             </div>
           </div> <!-- end of card_1 -->
@@ -35,23 +36,20 @@
               <ul class="list-group" id="contracts">
                   <li class="list-group-item">
                     <div class="contract_details">
-                      <p class="contract_name">Personal trainer</p>
-                      <p class="contract_frequency">once a week</p>
-                      <!-- !TODO: add some kinda dropdown here -->
+                      <p class="contract_name primary_text">Personal trainer</p>
+                      <p class="contract_frequency secondary_text">once a week</p>
                     </div>
                   </li>
                   <li class="list-group-item">
                       <div class="contract_details">
-                          <p class="contract_name">Doctor</p>
-                          <p class="contract_frequency">every month</p>
-                          <!-- !TODO: add some kinda dropdown here -->
+                          <p class="contract_name primary_text">Doctor</p>
+                          <p class="contract_frequency secondary_text">every month</p>
                         </div>
                   </li>
                   <li class="list-group-item">
                       <div class="contract_details">
-                          <p class="contract_name">Insurance Company</p>
-                          <p class="contract_frequency">twice a year</p>
-                          <!-- !TODO: add some kinda dropdown here -->
+                          <p class="contract_name primary_text">Insurance Company</p>
+                          <p class="contract_frequency secondary_text">twice a year</p>
                         </div>
                   </li>
                 </ul>

@@ -1,7 +1,7 @@
 :root{
-    --font_dark: rgba(0,0,0,87);
-    --font_medium: rgba(0,0,0,54);
-    --font_light: rgba(0,0,0,34);
+    --font_dark: rgba(0,0,0,0.87);
+    --font_medium: rgba(0,0,0,0.54);
+    --font_light: rgba(0,0,0,0.34);
     --font_white: white;
     --bg: #efefef;
 
