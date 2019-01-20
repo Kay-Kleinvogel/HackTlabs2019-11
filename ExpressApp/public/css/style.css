@@ -23,8 +23,8 @@ margin: 25% auto;
     position:absolute;
     bottom:0; left:0;
     width:100%;
-    background: orange;
-    height: 20%;
+    background: rgb(90, 189, 65);
+    height: 0%;
     transition:height 600ms;
     z-index: 1;
 }
