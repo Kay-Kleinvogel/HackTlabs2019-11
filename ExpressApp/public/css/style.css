@@ -1,0 +1,43 @@
+:root{
+    --font_dark: rgba(0,0,0,0.87);
+    --font_medium: rgba(0,0,0,0.54);
+    --font_light: rgba(0,0,0,0.34);
+    --font_white: white;
+    --bg: #efefef;
+
+}
+
+
+
+body{
+    background-color: var(--bg);
+}
+
+.doughnut { 
+    border: 35px solid var(--font_light);
+    border-radius: 100%;
+    height:300px;
+    width:300px;
+    margin: 25% auto;
+    /* insert progress here */
+
+    /*  */
+}
+
+#index_title{
+    margin-top: 25px;
+    text-align: center;
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+#steps{
+    text-align: center;
+    margin: 25px auto;
+}
+.major{
+    font-size: 1.5em;
+}
+.minor{
+    font-size: 0.8em;
+}
