@@ -16,8 +16,9 @@ app.get('/*', function (req, res) {
     console.log("User visited /");
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
-
+// is now only accessible through ip address
+app.listen(3000,'192.168.16.183' || 'localhost',function() {
+    console.log('Application worker ' + process.pid + ' started...');
+  }
+  );
 
