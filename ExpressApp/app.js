@@ -26,15 +26,6 @@ var contracts = [
         start_date:"2018-01-01",
         end_date:"2018-02-01"
     },
-    {
-        GUID:"5da44512-bcf2-4fe4-a16c-91b3614d475b",
-        owner:"a0df0546-eac8-4971-ac91-1d31f66f2a22            ",
-        recipient:"b231ad40-29ee-4de1-a662-c18e69a776cc            ",
-        contract_name:"coach",
-        frequency:"14",
-        start_date:"2018-01-01",
-        end_date:"2018-02-01"
-    }
 ]
 
 
@@ -44,19 +35,9 @@ var app = express();
 // adds "public" directory to the called directories
 app.use(express.static("public"));
 
-app.get("/c",function(reg, res){
-    var posts = 
-    [
-      {title: "post 1", author:"susi"},
-      {title: "post 2", author:"tom"},
-    ]
-
-    res.render("posts.ejs",{posts:posts});
-})
-
 app.get("/menu",function(reg, res){
     
-    res.render("posts.ejs",{
+    res.render("menu.ejs",{
         contracts:contracts
     })
     console.log("User visited /menu");
