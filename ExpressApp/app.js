@@ -35,30 +35,30 @@ var url = "mongodb://localhost:27017/Demo_Transaction_Data.TlabsHack";
 
 // Connect to the db
 MongoClient.connect(url, function (err, db) {
-   
-     if(err) throw err;
-    console.log("DEBUG: Database connected")
-     //Write databse Insert/Update/Query code here..
-                
+
+	if (err) throw err;
+	console.log("DEBUG: Database connected")
+	//Write databse Insert/Update/Query code here..
+
 });
 
-app.get("/menu",function(reg, res){
-    
-    res.render("menu.ejs",{
-        contracts:contracts
-    })
-    console.log("User visited /menu");
+app.get("/menu", function (reg, res) {
+
+	res.render("menu.ejs", {
+		contracts: contracts
+	})
+	console.log("User visited /menu");
 });
 
 // leave this at the bottom since it's the catch all response
 app.get('/*', function (req, res) {
-    res.render("splash.ejs")
-    console.log("User visited /");
+	res.render("splash.ejs")
+	console.log("User visited /");
 });
 
 // is now only accessible through ip address
-app.listen(3000,'192.168.16.183' || 'localhost',function() {
-    console.log('Application worker ' + process.pid + ' started...');
-  }
-  );
+app.listen(3000, '192.168.16.183' || 'localhost', function () {
+	console.log('Application worker ' + process.pid + ' started...');
+}
+);
 
