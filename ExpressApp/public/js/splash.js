@@ -18,7 +18,7 @@ setInterval(intervalFunc, 2250);
 body.on("click", function () {
   progressUp(20);
   clearInterval(intervalFunc);
-  window.location.href = "http://192.168.16.183:3000/menu?steps=" + (progress * 5);
+  window.location.href = "http://localhost:3000/menu?steps=" + (progress * 5);
 });
 
 // http://192.168.16.183:3000/menu"

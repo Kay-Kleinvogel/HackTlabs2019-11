@@ -57,7 +57,7 @@ app.get('/*', function (req, res) {
 });
 
 // is now only accessible through ip address
-app.listen(3000, '192.168.16.183' || 'localhost', function () {
+app.listen(3000,'localhost', function () {
 	console.log('Application worker ' + process.pid + ' started...');
 }
 );
